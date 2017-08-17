@@ -4,7 +4,7 @@
 ecutools::ecutools(string portname)
 {
 	ecu = new densoecu(portname);
-	l = new log();
+	l = new Log();
 	image = NULL;
 	kernel = NULL;
 	kerneltype = kt_oecu;
@@ -39,7 +39,7 @@ void ecutools::set_model(ecumodel _model)
 	}
 }
 
-void ecutools::addlog(log *_l)
+void ecutools::addlog(Log *_l)
 {
 	delete l;
 	l = _l;

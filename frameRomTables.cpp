@@ -1,3 +1,4 @@
+#if defined(ENABLE_EDIT_ROM)
 /*/
 	frameRomTables.cpp (2005.01.19)
 /*/
@@ -277,3 +278,4 @@ CATCHCATCH("callbackRomTables()");
 
 	return ERR_SUCCESS;
 }
+#endif

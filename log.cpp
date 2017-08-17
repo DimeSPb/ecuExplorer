@@ -3,7 +3,7 @@
 
 static const int debugALL = 0xFFFFFFFF;
 
-log::log(void)
+Log::Log(void)
 {
 	hLogfile = NULL;
 	logMask = debugALL;
@@ -17,26 +17,26 @@ log::log(void)
 	pDialog = NULL;
 }
 
-log::~log(void)
+Log::~Log(void)
 {
 }
 
-void log::set_timestamp(bool _timestamp)
+void Log::set_timestamp(bool _timestamp)
 {
 	bTimeStamp = _timestamp;
 }
 
-void log::set_filename(string _filename)
+void Log::set_filename(string _filename)
 {
 	filename = _filename;
 }
 
-void log::set_mask(int _mask)
+void Log::set_mask(int _mask)
 {
 	logMask = _mask;
 }
 
-bool log::open()
+bool Log::open()
 {
 	if (hLogfile)
 		close();
@@ -58,7 +58,7 @@ bool log::open()
 	return true;
 }
 
-bool log::close()
+bool Log::close()
 {
 	if (!hLogfile)
 		return false;
@@ -70,7 +70,7 @@ bool log::close()
 
 #define SERIAL_DBGPRINT_BUFSIZE 16384
 
-bool log::print(IN ULONG Level, PCHAR Format, ...)
+bool Log::print(IN ULONG Level, PCHAR Format, ...)
 {
 	va_list arglist;
 	ULONG Mask;
@@ -129,7 +129,7 @@ bool log::print(IN ULONG Level, PCHAR Format, ...)
 //	return ret;
 }
 
-bool log::print(PCHAR Format, ...)
+bool Log::print(PCHAR Format, ...)
 {
 	va_list arglist;
 	int cb;
@@ -176,7 +176,7 @@ bool log::print(PCHAR Format, ...)
    return true;
 }
 
-void log::set_dialog(dialogEcuFlash* lpDialog)
+void Log::set_dialog(dialogEcuFlash* lpDialog)
 {
 	pDialog = lpDialog;
 }

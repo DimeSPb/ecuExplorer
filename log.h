@@ -5,7 +5,7 @@ using namespace std;
 
 #include "dialogEcuFlash.h"
 
-class log
+class Log
 {
 private:
 	FILE* hLogfile;
@@ -23,8 +23,8 @@ private:
 	dialogEcuFlash* pDialog;
 
 public:
-	log(void);
-	~log(void);
+	Log(void);
+	~Log(void);
 	void set_filename(string _filename);
 	void set_timestamp(bool _timestamp);
 	void set_mask(int _mask);

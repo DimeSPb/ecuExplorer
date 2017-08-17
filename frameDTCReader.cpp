@@ -21,8 +21,8 @@ BEGIN_MESSAGE_MAP(frameDTCReader, CFrameWnd)
 	ON_WM_CREATE()
 	ON_WM_SIZE()
 	//}}AFX_MSG_MAP
-	ON_MESSAGE(MESSAGE_UPDATECURRENTDTC,OnUpdateCurrentDTC)
-	ON_MESSAGE(MESSAGE_UPDATEHISTORICDTC,OnUpdateHistoricDTC)
+	ON_MESSAGE(MESSAGE_UPDATECURRENTDTC, OnUpdateCurrentDTC)
+	ON_MESSAGE(MESSAGE_UPDATEHISTORICDTC, OnUpdateHistoricDTC)
 END_MESSAGE_MAP()
 
 frameDTCReader::frameDTCReader()
@@ -128,7 +128,7 @@ CATCHCATCH("frameDTCReader::ResizeSplitter()");
 	return;
 }
 
-void frameDTCReader::OnUpdateCurrentDTC(WPARAM wParam,LPARAM lParam)
+LRESULT frameDTCReader::OnUpdateCurrentDTC(WPARAM wParam,LPARAM lParam)
 {
 	CString sError;
 	LPSTRUCT_DTCITEM lpDTCItem = (LPSTRUCT_DTCITEM)lParam;
@@ -157,10 +157,10 @@ CATCHCATCH("frameDTCReader::OnUpdateCurrentDTC()");
 	if(bExceptionFlag == EXEPT_ABORT)
 		nuke();
 
-	return;
+	return 0;
 }
 
-void frameDTCReader::OnUpdateHistoricDTC(WPARAM wParam,LPARAM lParam)
+LRESULT frameDTCReader::OnUpdateHistoricDTC(WPARAM wParam,LPARAM lParam)
 {
 	CString sError;
 	LPSTRUCT_DTCITEM lpDTCItem = (LPSTRUCT_DTCITEM)lParam;
@@ -189,7 +189,7 @@ CATCHCATCH("frameDTCReader::OnUpdateHistoricDTC()");
 	if(bExceptionFlag == EXEPT_ABORT)
 		nuke();
 
-	return;
+	return 0;
 }
 
 void frameDTCReader::OnPauseDTC()

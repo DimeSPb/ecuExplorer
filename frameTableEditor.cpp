@@ -136,7 +136,8 @@ EXCEPTION_BOOKMARK(__LINE__)
 	GetClientRect(&rect);
 
 EXCEPTION_BOOKMARK(__LINE__)
-	if((lpGrid = new frameGrid) == NULL)
+	frameGrid* lpGrid;
+	if((lpGrid = new frameGrid()) == NULL)
 	{
 		sError.Format("Memory Error - callbackRomTables [lpGrid] : %i [0x%X]",GetLastError()); 
 		OutputString(sError,TRUE);
